@@ -4,7 +4,7 @@ import { FruitService } from './../fruit.service';
 @Component({
   selector: 'fruit-list',
   template: `
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <h2>Fruit List</h2>
     <h3>{{errorMsg}}</h3>
