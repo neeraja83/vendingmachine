@@ -39,10 +39,12 @@ Install the following module.
 
   I also added 'Ng2OrderModule' in imports inside app.module.ts
   
-## import Client module
+##
+
 
 import { HttpClientModule } from '@angular/common/http';
- 
+    HttpClientModule
+  
 ## Defined interface Fruits in fruits.ts 
 
 export interface IFruit {
@@ -57,3 +59,7 @@ export interface IFruit {
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+
+## Installed Ng-bootstrap for modal dialog boxes.
+
+Run 'npm install --save @ng-bootstrap/ng-bootstrap' in the command line
