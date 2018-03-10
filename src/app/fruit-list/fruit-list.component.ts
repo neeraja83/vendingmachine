@@ -22,8 +22,8 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
         <button class="btn btn-primary" type="submit" (click)="onSave(input.value)">Details</button>&nbsp;&nbsp;&nbsp;
         <button class="btn btn-primary" type="submit" (click)="onSave(input.value)">Buy</button>&nbsp;&nbsp;&nbsp;
         <input #myInput type="text" value="{{fruit.quantityAvailable}}" style='width:20em'>&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" type="submit" (click)="onClick(myInput.value-1)" style='width:3em'><span class="glyphicon glyphicon-chevron-down"></span></button>
-        
+        <button class="btn btn-primary" type="submit" (click)="onClick(myInput.value-1)" style='width:3em'><b>-</b></button>
+        <p>Quantity is reduced by  {{fruit.quantityAvailable}} - 1</p>
         </div>
     </div>
     </ul>
@@ -42,6 +42,8 @@ export class FruitListComponent implements OnInit {
   onClick(value)
 {
 alert(value);
+value= value -1;
+
 
 }
 
