@@ -6,12 +6,27 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 
+
+
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+
+
 @Injectable()
 export class FruitService {
 
   private _url: string = "/assets/data/fruits.json";
-
+  private messages: Message[] = [];
   constructor(private http:HttpClient) { }
+
+ 
+  
+
+  addMessage(message: Message)
+  {
+    this.messages.push(message);
+    console.log(this.messages);
+   
+  }
 
   getFruits(): Observable<IFruit[]>{
     return this.http.get<IFruit[]>(this._url)
