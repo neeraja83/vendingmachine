@@ -1,36 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { FruitService } from './../fruit.service';
 import {NgForm} from '@angular/forms';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'fruit-list',
-  template: `
-<div class="container-fluid">
-  <div class="row">
-    <h2>Fruit List</h2>
-    <br><br>
-    <h3>{{errorMsg}}</h3>
-   <br>
-  <ul *ngFor="let fruit of fruits | orderBy: order">
-      {{fruit.name}} - <b>Quantity Available: </b>{{fruit.quantityAvailable}}
-      <li>{{fruit.description}}</li>
-           
-    <div class="container-fluid">
-    <div class="row book-sb">
-
-        <button class="btn btn-primary" type="submit" (click)="onSave(input.value)">Details</button>&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" type="submit" (click)="onSave(input.value)">Buy</button>&nbsp;&nbsp;&nbsp;
-        <input #myInput type="text" value="{{fruit.quantityAvailable}}" style='width:20em'>&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" type="submit" (click)="onClick(myInput.value-1)" style='width:3em'><b>-</b></button>
-        <p>Quantity is reduced by  {{fruit.quantityAvailable}} - 1</p>
-        </div>
-    </div>
-    </ul>
- </div>
-</div>
-  `,
-  styles: []
+  templateUrl: './fruit-list.component.html',
 })
 export class FruitListComponent implements OnInit {
 
@@ -39,14 +14,23 @@ export class FruitListComponent implements OnInit {
   order: string = 'name';
   public errorMsg;
 
-  onClick(value)
+onClick1(value1,value2)
 {
-alert(value);
-value= value -1;
+ alert(value1);
+ alert(value2);
+ 
+ var y= value2;
+ document.getElementById("demo1").innerHTML = "<br><b>Details Page<br><br><br></b> "+x+"<br><br>"+y;
+ var x =(<HTMLImageElement>document.querySelector("myInput1")).src;
+ 
+document.getElementById("demo1").innerHTML = x;
+ }
 
-
+onClick(value)
+{
+ var x = value;
+ document.getElementById("demo").innerHTML = "The Quantity is reduced to "+x;
 }
-
   constructor(private _fruitService: FruitService) { }
 
   ngOnInit() {
