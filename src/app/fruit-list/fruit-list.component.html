@@ -1,0 +1,94 @@
+<html>
+    <head>
+
+        <script>
+             $(document).ready(function() {
+        $(function(){
+  $('#demo').on('hide.bs.collapse', function () {
+    $('#button').html('<span class="glyphicon glyphicon-collapse-down"></span> Show');
+  })
+  $('#demo').on('show.bs.collapse', function () {
+    $('#button').html('<span class="glyphicon glyphicon-collapse-up"></span> Hide');
+  })
+})
+});
+  
+        </script>
+    </head>
+
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+  
+      <br><br>
+      <h3>{{errorMsg}}</h3>
+     <br>
+
+     <table>
+        <thead>
+         <tr class="d-flex">
+     
+          <th class="col-3">Fruit Name</th>
+          <th class="col-sm-5">Description</th>
+          <th class="col-sm-3">Quantity Available</th>
+         </tr>
+        </thead>
+        <tbody>
+            <ul *ngFor="let fruit of fruits | orderBy: order">
+            <tr class="d-flex">
+      
+             <td class="col-3">{{fruit.name}}</td>
+             <td class="col-sm-5">{{fruit.description}}</td>
+             <td class="col-sm-3">
+             <div class="input-group input-group-sm">
+                    <div class="input-group-sm">
+                     <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                        <input #myInput1 type="hidden" src="{{fruit.image}}" style='width:3em'>
+                        <input #myInput2 type="hidden" value="{{fruit.description}}" style='width:3em'>
+                        <button id="button" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1" (click)="onClick1(myInput1.src,myInput2.value)">
+                        <span class="glyphicon glyphicon-collapse-down"></span> Details
+                        </button>&nbsp;&nbsp;&nbsp;
+                    </div>
+
+                <div class="input-group-sm">
+                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                    <button class="btn btn-primary" type="submit">BUY</button>
+                </div>
+    
+                <div class="input-group-btn" id="search-actions">
+                        
+                    <input #myInput type="text" value="{{fruit.quantityAvailable}}" style='width:3em'>
+                    <button id="button" type="button" class="btn btn-default" data-toggle="collapse" data-target="#demo" (click)="onClick(myInput.value-1)">
+                        <span class="glyphicon glyphicon-collapse-down"></span> <b>-</b>
+                    </button>
+                </div>
+
+                
+             </div>
+
+             </td>
+            </tr>
+            </ul>
+        </tbody>
+     </table>
+     
+     
+
+      <p id="demo"></p>
+      <p id="demo1">
+        
+      
+      </p>
+      <p id="demo2">
+         
+      </p>
+      <br>
+      
+         
+    
+   </div>
+  </div>
+</body>
+
+</html>
